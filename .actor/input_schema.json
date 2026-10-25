@@ -1,0 +1,23 @@
+{
+  "title": "Google Maps contractor website collection",
+  "description": "Search Google Maps by construction trade and location, collect public company websites and profile data, and skip duplicates across runs.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrls": { "title": "Optional Google Maps search URLs", "description": "Paste Maps search URLs here, or leave empty and use search terms plus locations.", "type": "array", "editor": "stringList", "default": [], "items": { "type": "string" } },
+    "searchTerms": { "title": "Construction trades", "description": "Each trade is searched in every target location.", "type": "array", "editor": "stringList", "default": ["commercial general contractors", "electrical contractors", "concrete contractors", "HVAC contractors", "roofing contractors"], "items": { "type": "string" } },
+    "locations": { "title": "Target locations", "description": "Use city and state together, for example Los Angeles, California.", "type": "array", "editor": "stringList", "default": ["Los Angeles, California"], "items": { "type": "string" } },
+    "maximumNewCompanies": { "title": "Maximum new companies this run", "description": "Stops after this many unique companies with valid websites are saved.", "type": "integer", "editor": "number", "default": 500, "minimum": 1, "maximum": 10000 },
+    "maximumProfilesVisited": { "title": "Maximum Maps profiles visited", "description": "Profiles without websites still count as visited. Use about twice the desired website count.", "type": "integer", "editor": "number", "default": 1000, "minimum": 1, "maximum": 20000 },
+    "maximumResultsPerSearch": { "title": "Maximum profiles discovered per search", "description": "Maximum Google Maps listings queued from each trade and location search.", "type": "integer", "editor": "number", "default": 120, "minimum": 1, "maximum": 500 },
+    "requireWebsite": { "title": "Require company website", "description": "Output only companies with a valid external website.", "type": "boolean", "editor": "checkbox", "default": true },
+    "collectEmailsFromCompanyWebsites": { "title": "Visit company websites for public email", "description": "Visit the external website and contact page to find a publicly displayed email. This increases run time and cost.", "type": "boolean", "editor": "checkbox", "default": false },
+    "useResidentialProxy": { "title": "Use Apify residential proxy", "description": "Recommended when Google blocks or limits the Actor.", "type": "boolean", "editor": "checkbox", "default": true },
+    "proxyCountryCode": { "title": "Proxy country code", "description": "Two-letter country code for the residential proxy.", "type": "string", "editor": "textfield", "default": "US" },
+    "campaignName": { "title": "Campaign name", "description": "Keep unchanged to continue progress and skip companies already processed.", "type": "string", "editor": "textfield", "default": "google-maps-contractor-websites" },
+    "resetProgress": { "title": "Reset saved progress", "description": "Erase this campaign's queue and duplicate history before running.", "type": "boolean", "editor": "checkbox", "default": false },
+    "pageTimeoutSecs": { "title": "Page navigation timeout", "description": "Maximum seconds allowed for one page navigation.", "type": "integer", "editor": "number", "default": 60, "minimum": 10, "maximum": 180 },
+    "delayMillis": { "title": "Delay between profile pages", "description": "Polite delay between Google Maps profile visits.", "type": "integer", "editor": "number", "default": 900, "minimum": 0, "maximum": 30000 }
+  },
+  "required": ["maximumNewCompanies", "maximumProfilesVisited", "maximumResultsPerSearch", "campaignName"]
+}

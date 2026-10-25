@@ -1,0 +1,26 @@
+{
+  "actorSpecification": 1,
+  "fields": {},
+  "views": {
+    "overview": {
+      "title": "Google Maps contractor websites",
+      "transformation": { "fields": ["companyName", "website", "email", "phone", "address", "category", "rating", "reviewsCount", "googleMapsUrl", "searchTerm", "location"] },
+      "display": {
+        "component": "table",
+        "properties": {
+          "companyName": { "label": "Company", "format": "text" },
+          "website": { "label": "Website", "format": "link" },
+          "email": { "label": "Email", "format": "text" },
+          "phone": { "label": "Phone", "format": "text" },
+          "address": { "label": "Address", "format": "text" },
+          "category": { "label": "Category", "format": "text" },
+          "rating": { "label": "Rating", "format": "number" },
+          "reviewsCount": { "label": "Reviews", "format": "number" },
+          "googleMapsUrl": { "label": "Google Maps profile", "format": "link" },
+          "searchTerm": { "label": "Search term", "format": "text" },
+          "location": { "label": "Location", "format": "text" }
+        }
+      }
+    }
+  }
+}

@@ -1,1 +1,10 @@
-
+{
+  "actorSpecification": 1,
+  "name": "fortify-google-maps-contractor-websites",
+  "title": "Fortify Google Maps Contractor Websites",
+  "version": "0.0",
+  "buildTag": "latest",
+  "dockerfile": "../Dockerfile",
+  "input": "./input_schema.json",
+  "storages": { "dataset": { "schema": "./dataset_schema.json" } }
+}
